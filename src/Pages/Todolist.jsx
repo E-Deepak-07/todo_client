@@ -23,7 +23,7 @@ const Todolist = () => {
 
     const postTodo = async () => {
         try {
-            await axios.post("https://todo-server-ec2-izkh.onrender.com/csbs/addtodo", { todo }).then((response) => { console.log(response.data) })
+            await axios.post(`https://todo-server-ec2-izkh.onrender.com/csbs/addtodo`, { todo }).then((response) => { console.log(response.data) })
             setTodo('');
             setStatus(true);
             getTodo();
@@ -34,7 +34,7 @@ const Todolist = () => {
     }
 
     const getTodo = async () => {
-        await axios.get("https://todo-server-ec2-izkh.onrender.com/csbs/gettodo")
+        await axios.get(`https://todo-server-ec2-izkh.onrender.com/csbs/gettodo`)
             .then((response) => {
                 setTodoArray(response.data)
             })
